@@ -1,12 +1,13 @@
 {
   "name": "asciify-text",
-	"displayName": "ASCIIFy Text",
+	"displayName": "ASCIIFy",
 	"description": "Convert a selected text to big uppercase letters built with the # symbol",
 	"version": "0.0.1",
 	"publisher": "colaholicu",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
+	"icon": "images/asciify-icon.png",
 	"categories": [
 		"Other"
 	],
