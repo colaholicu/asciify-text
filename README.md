@@ -4,7 +4,7 @@ A simple extension that transform a letter into a bigger ASCII one made of the #
 
 ## Features
 
-* convert letters and various symmbols
+* convert letters and various symbols
 * can apply to multiple rows of text
 
 
