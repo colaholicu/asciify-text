@@ -29,6 +29,10 @@ Only supports the English alphabet.
 
 ## Release Notes
 
+### 1.0.0
+
+Added support for numbers and for more commonly used symbols.
+
 ### 0.0.1
 
 Initial release. Added support for the English alphabet letters and the '.' and ',' symbols.

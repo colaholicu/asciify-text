@@ -5,12 +5,7 @@ import * as dictionary from './dictionary';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-	
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('"asciify-text" is now active!');
-
+export function activate(context: vscode.ExtensionContext) {	
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
@@ -26,9 +21,23 @@ export function activate(context: vscode.ExtensionContext) {
 
 			// Get the word within the selection
 			const selectedText = document.getText(selection);
-			const ascii = converter.convert(selectedText);
+			if (selectedText.length === 0) {
+				vscode.window.showInformationMessage("No text selected.");
+				return;
+			}
+
+			const result = converter.convert(selectedText);			
+			const ignoredCharacters = result.ignoredCharacters;
+			if ((ignoredCharacters > 0) && !result.isValidOutput) {
+				vscode.window.showErrorMessage("Text couldn't be converted! It contains only unsupported characters.");
+				return;
+			}
+			else if (ignoredCharacters > 0) {
+				vscode.window.showWarningMessage("Unsupported characters were removed.");
+			}
+
 			editor.edit(editBuilder => {
-				editBuilder.replace(selection, ascii);
+				editBuilder.replace(selection, result.output);
 			});
 		}
 	});
