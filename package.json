@@ -2,7 +2,7 @@
   "name": "asciify-text",
   "displayName": "ASCIIFy",
   "description": "Convert a selected text to big uppercase letters built with the # symbol",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "colaholicu",
   "engines": {
     "vscode": "^1.66.0"
@@ -21,7 +21,26 @@
         "command": "asciify-text.convertSelection",
         "title": "ASCIIfy Selection"
       }
-    ]
+    ],    
+    "configuration": {
+      "title": "ASCIIFy",
+      "properties": {
+        "asciify-text.showInContextMenu": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the 'ASCIIfy Selection' command in the context menu."
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+            "command": "asciify-text.convertSelection",
+            "group": "asciify",
+            "when": "config.asciify-text.showInContextMenu && editorTextFocus && editorHasSelection"
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",

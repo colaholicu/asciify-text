@@ -29,6 +29,10 @@ Only supports the English alphabet.
 
 ## Release Notes
 
+### 1.1.0
+
+Added the option to run the command from the context menu in the text editor (can be toggled in settings)
+
 ### 1.0.0
 
 Added support for numbers and for more commonly used symbols.
